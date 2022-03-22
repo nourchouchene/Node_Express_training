@@ -9,7 +9,8 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const res = require('express/lib/response');
 const dishRouter = require('./routes/dishRouter');
-
+const leaderRouter=require ('./routes/leaderRouter');
+const promoRouter=require ('./routes/promoRouter');
 
 const app = express();
 app.use(morgan('dev'));
@@ -21,6 +22,9 @@ app.use(bodyParser.json()) ;
 // Crud operations 
 
 app.use('/dishes', dishRouter);
+app.use('/promotions',promoRouter)
+app.use('/leadership',leaderRouter)
+
 
 
 app.use(express.static(__dirname + '/public'));
